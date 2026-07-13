@@ -1,14 +1,16 @@
 # FundProof QA
 
-FundProof QA is a local preview for IR, content operations and compliance teams at asset managers. It checks a synthetic fund-assistant QA set for evidence coverage, unsupported claims, conflicting source versions, stale documents and explicit must-refuse policy classes.
+[Live product](https://fundproof.netolabs.dev) | [GitHub repository](https://github.com/luizvb/fundproof-qa) | [Releases](https://github.com/luizvb/fundproof-qa/releases)
 
-Release candidate: `0.1.0`. It has no upload flow, backend, account system, billing or production data path.
+FundProof QA is a public synthetic-data preview for IR, content operations and compliance teams at asset managers. It checks a synthetic fund-assistant QA set for evidence coverage, unsupported claims, conflicting source versions, stale documents and explicit must-refuse policy classes.
+
+Release: `0.1.0`. It has no upload flow, backend, account system, billing or production data path.
 
 | Surface | Status |
 | --- | --- |
-| Live demo | Pending deployment |
-| Source repository | Pending remote publication |
-| Release | `v0.1.0` tag pending |
+| Live demo | [fundproof.netolabs.dev](https://fundproof.netolabs.dev) |
+| Source repository | [luizvb/fundproof-qa](https://github.com/luizvb/fundproof-qa) |
+| Release | `v0.1.0` |
 | Local web build | Available from `dist/` after `npm run build` |
 | Local CLI build | Available after `go build ./cmd/fundproof-lint` |
 
