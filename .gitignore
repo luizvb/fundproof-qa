@@ -1,7 +1,7 @@
 node_modules/
 dist/
 coverage/
-fundproof-lint
+/fundproof-lint
 .DS_Store
 *.tsbuildinfo
 vite.config.js
