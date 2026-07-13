@@ -1,14 +1,16 @@
-# FundProof QA
+# FundProof QA — archived
 
-[Live product](https://fundproof.netolabs.dev) | [GitHub repository](https://github.com/luizvb/fundproof-qa) | [Releases](https://github.com/luizvb/fundproof-qa/releases)
+> Killed on 2026-07-12 after a product-category review. The implementation is preserved as a technical reference, but the service is no longer deployed or under active development.
 
-FundProof QA is a public synthetic-data preview for IR, content operations and compliance teams at asset managers. It checks a synthetic fund-assistant QA set for evidence coverage, unsupported claims, conflicting source versions, stale documents and explicit must-refuse policy classes.
+FundProof QA is a synthetic-data QA tool for checking a fund-assistant dataset for evidence coverage, unsupported claims, conflicting source versions, stale documents and explicit must-refuse policy classes.
+
+The project was technically sound, but the venture thesis failed: an operator-facing validator became the primary product instead of remaining a complementary tool for a clear public-facing micro-SaaS. See the [retrospective](docs/retrospective.md).
 
 Release: `0.1.0`. It has no upload flow, backend, account system, billing or production data path.
 
 | Surface | Status |
 | --- | --- |
-| Live demo | [fundproof.netolabs.dev](https://fundproof.netolabs.dev) |
+| Live demo | Deactivated |
 | Source repository | [luizvb/fundproof-qa](https://github.com/luizvb/fundproof-qa) |
 | Release | `v0.1.0` |
 | Local web build | Available from `dist/` after `npm run build` |
@@ -99,9 +101,7 @@ The preview uses deterministic fixture checks. It does not generate answers, mak
 
 `vercel.json` configures the Vite build, SPA fallback, long-lived hashed-asset caching and restrictive browser headers. The app requires no server functions or runtime environment variables.
 
-Public metadata includes SVG favicon and mark assets, 192px and 512px app icons, an Apple touch icon, web manifest and a 1200x630 social image. The `og:image` value is root-relative until a live URL exists.
-
-No deployment or remote repository is created by this package.
+Public metadata includes SVG favicon and mark assets, 192px and 512px app icons, an Apple touch icon, web manifest and a 1200x630 social image.
 
 ## Documentation
 
@@ -109,6 +109,7 @@ No deployment or remote repository is created by this package.
 - [Opportunity research](docs/research.md)
 - [Architecture](docs/architecture.md)
 - [Security](docs/security.md)
+- [Retrospective and kill decision](docs/retrospective.md)
 - [Brand](docs/brand/README.md)
 - [Task slices](docs/task.md)
 - [Marketing drafts](docs/marketing/drafts.md)
