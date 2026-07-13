@@ -1,0 +1,64 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  web:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npm run check:copy
+      - run: npm test
+      - run: npm run typecheck
+      - run: npm run build
+      - uses: actions/upload-artifact@v4
+        with:
+          name: web-dist
+          path: dist
+          if-no-files-found: error
+
+  go:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-go@v5
+        with:
+          go-version-file: go.mod
+          cache: true
+      - run: gofmt -d -e cmd internal | tee /tmp/gofmt.diff && test ! -s /tmp/gofmt.diff
+      - run: go test ./...
+      - run: go vet ./...
+      - run: go build -o fundproof-lint ./cmd/fundproof-lint
+      - run: ./fundproof-lint --help
+      - run: ./fundproof-lint testdata/sample.json > report.json
+      - uses: actions/upload-artifact@v4
+        with:
+          name: fundproof-lint-linux-amd64
+          path: fundproof-lint
+          if-no-files-found: error
+
+  security:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npm run check:secrets
+      - run: npm audit --audit-level=high

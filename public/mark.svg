@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96" role="img" aria-labelledby="title">
+  <title id="title">Two source pages connected by an evidence link</title>
+  <rect x="18" y="13" width="39" height="54" rx="7" fill="none" stroke="#18212b" stroke-width="4"/>
+  <rect x="35" y="29" width="39" height="54" rx="7" fill="#eef1f4" stroke="#18212b" stroke-width="4"/>
+  <path d="M37 56 L64 43" fill="none" stroke="#345f9d" stroke-width="7" stroke-linecap="round"/>
+</svg>
