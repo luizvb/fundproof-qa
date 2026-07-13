@@ -95,6 +95,11 @@ export function App() {
     () => report?.findings.filter((finding) => finding.reviewRequired).length ?? 0,
     [report],
   );
+  const exportHref = useMemo(() => {
+    if (!report) return undefined;
+    const payload = JSON.stringify({ ...report, metrics: { ttvMs } }, null, 2);
+    return `data:application/json;charset=utf-8,${encodeURIComponent(payload)}`;
+  }, [report, ttvMs]);
 
   function run(mode: RunMode = "success") {
     setViewState("loading");
@@ -129,17 +134,7 @@ export function App() {
   }
 
   function exportJson() {
-    if (!report) return;
-    const payload = JSON.stringify({ ...report, metrics: { ttvMs } }, null, 2);
-    const url = URL.createObjectURL(new Blob([payload], { type: "application/json" }));
-    const anchor = document.createElement("a");
-    anchor.href = url;
-    anchor.download = "fundproof-qa-report.json";
-    anchor.hidden = true;
-    document.body.appendChild(anchor);
-    anchor.click();
-    anchor.remove();
-    window.setTimeout(() => URL.revokeObjectURL(url), 0);
+    if (!report || !exportHref) return;
     setExported(true);
     track("export_json", ttvMs ?? undefined);
   }
@@ -269,9 +264,14 @@ export function App() {
                 </div>
 
                 <div className="report-actions">
-                  <button className="button button-primary" type="button" onClick={exportJson}>
+                  <a
+                    className="button button-primary"
+                    href={exportHref}
+                    download="fundproof-qa-report.json"
+                    onClick={exportJson}
+                  >
                     Export JSON
-                  </button>
+                  </a>
                   <button className="button button-secondary" type="button" onClick={() => run()}>
                     Run again
                   </button>
