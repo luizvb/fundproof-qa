@@ -1,0 +1,9 @@
+{
+  "schemaVersion": "1.0",
+  "policy": { "asOfDate": "2026-07-12", "staleAfterDays": 365 },
+  "sources": [{
+    "id": "source", "title": "Factsheet", "fundId": "FUND", "version": "1",
+    "effectiveDate": "2026-07-01", "pages": [{ "page": 1, "text": "Benchmark: CDI" }]
+  }],
+  "qas": [{ "id": "qa", "question": "Benchmark?" }]
+}

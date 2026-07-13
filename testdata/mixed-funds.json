@@ -1,0 +1,23 @@
+{
+  "schemaVersion": "1.0",
+  "policy": { "asOfDate": "2026-07-12", "staleAfterDays": 365 },
+  "sources": [
+    {
+      "id": "one",
+      "title": "Fund One",
+      "fundId": "FUND-ONE",
+      "version": "1",
+      "effectiveDate": "2026-07-01",
+      "pages": [{ "page": 1, "text": "Benchmark: CDI" }]
+    },
+    {
+      "id": "two",
+      "title": "Fund Two",
+      "fundId": "FUND-TWO",
+      "version": "1",
+      "effectiveDate": "2026-07-01",
+      "pages": [{ "page": 1, "text": "Benchmark: CDI" }]
+    }
+  ],
+  "qas": [{ "id": "qa", "question": "Benchmark?", "answer": "CDI" }]
+}
