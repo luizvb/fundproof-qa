@@ -3,6 +3,7 @@ dist/
 coverage/
 /fundproof-lint
 .DS_Store
+.vercel/
 *.tsbuildinfo
 vite.config.js
 vite.config.d.ts
