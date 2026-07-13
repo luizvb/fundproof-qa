@@ -135,8 +135,11 @@ export function App() {
     const anchor = document.createElement("a");
     anchor.href = url;
     anchor.download = "fundproof-qa-report.json";
+    anchor.hidden = true;
+    document.body.appendChild(anchor);
     anchor.click();
-    URL.revokeObjectURL(url);
+    anchor.remove();
+    window.setTimeout(() => URL.revokeObjectURL(url), 0);
     setExported(true);
     track("export_json", ttvMs ?? undefined);
   }
